@@ -50,7 +50,6 @@ button.onclick = async function() {
     const date_hours = day + ' ' + hours;
 
     let hashed_mdp = await hash(mdp.value);
-    const del_button = '<button>Supprimer</button>';
 
     const validite = verification(pseudo.value,age.value,mdp.value,mdp2.value);
     // const validite = true;
@@ -59,6 +58,7 @@ button.onclick = async function() {
         const tab = document.getElementById("tableau");
         const newRow = tab.insertRow(-1);
         id++;
+        const del_button = "<button id="+id+">Supprimer</button>";
         createTab(id,newRow);
         createTab(pseudo.value,newRow);
         createTab(age.value,newRow);
@@ -75,6 +75,5 @@ const del_row = document.getElementById("del-button");
 
 del_row.onclick = function() {
     document.getElementById("tableau").deleteRow(0);
-    const row = document.getElementsByTagName('tbody > tr');
 }
 
