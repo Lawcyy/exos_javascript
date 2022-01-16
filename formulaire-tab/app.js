@@ -45,12 +45,12 @@ button.onclick = async function() {
     const mdp = document.getElementById('mdp');
     const mdp2 = document.getElementById('mdp2');
     const date = new Date();
-    const day = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+    const day = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
     const hours = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     const date_hours = day + ' ' + hours;
 
     let hashed_mdp = await hash(mdp.value);
-    const del_button = "<button id='del-button'>Supprimer</button>";
+    const del_button = '<button>Supprimer</button>';
 
     const validite = verification(pseudo.value,age.value,mdp.value,mdp2.value);
     // const validite = true;
@@ -65,6 +65,9 @@ button.onclick = async function() {
         createTab(date_hours,newRow);
         createTab(hashed_mdp,newRow);
         createTab(del_button,newRow);
+        const del = document.getElementsByTagName('tbody > button');
+        del.setAttribute('id','del-button');
+        
     }
 }
 
@@ -72,5 +75,6 @@ const del_row = document.getElementById("del-button");
 
 del_row.onclick = function() {
     document.getElementById("tableau").deleteRow(0);
+    const row = document.getElementsByTagName('tbody > tr');
 }
 
