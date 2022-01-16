@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=SourceSansPro:regular,bold&subset=Latin">
+    
+    <title>Formulaire d'inscription au Cookie Fan Club</title>
+</head>
+<body>
+    <div id="text-container">
+        <div id="formulaire">
+            <h1>Formulaire d'inscription au Cookie Fan Club !</h1>
+            <form method="post">
+                <div>
+                    <label>Pseudo:</label>
+                    <br>
+                    <input type="text" id="pseudo">
+                </div>    
+                <div>
+                    <label>Âge:</label>
+                    <br>
+                    <input id="age">
+                </div>
+                <div>
+                    <label>Mot de passe:</label>
+                    <br>
+                    <input id="mdp">
+                    <br>
+                </div>
+                <div>
+                    <label>Vérification du mot de passe:</label>
+                    <br>
+                    <input id="mdp2">
+                </div>
+                <small></small>
+            </form>
+            <button id="form-button">Valider</button>
+        </div>      
+        
+        <div id="tab-container">
+            <h2>inscriptions</h2>
+        <table id="tableau">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Pseudo</th>
+                    <th>Âge</th>
+                    <th>Date et heure d'envoi</th>
+                    <th>Mdp (hashed)</th>
+                    <th>Supprimer ligne</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>  
+    </div>
+    <script src='./app.js'></script>
+</body>
+</html>
