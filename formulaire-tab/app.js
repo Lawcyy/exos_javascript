@@ -1,6 +1,6 @@
 
 const button = document.getElementById('form-button');
-const rapport = document.getElementsByTagName('small'); 
+let pseudoUsed = [0];
 let id = 0;
 
 const enoughCharacters = (length) => length <= 1 || length >= 20 ? false : true;
@@ -12,6 +12,10 @@ const isItNumbers = (value) => {
 }
 const samePassword = (value,value2) => value === value2 ? true : false; 
 
+function alreadyUsed(pseudo) {
+    return pseudoUsed.includes(pseudo);
+}
+
 let verification = (pseudo,age,mdp,mdp2) => {
     
     if (enoughCharacters(pseudo.length) === false) {
@@ -20,6 +24,8 @@ let verification = (pseudo,age,mdp,mdp2) => {
         alert("L'âge doit être un nombre");
     } else if (samePassword(mdp,mdp2) === false) {
         alert("Les mots de passe ne correspondent pas");
+    } else if (alreadyUsed(pseudo) === true) {
+        alert("Ce pseudo est déja utilisé");
     } else {
         return true;
     }
@@ -58,22 +64,22 @@ button.onclick = async function() {
         const tab = document.getElementById("tableau");
         const newRow = tab.insertRow(-1);
         id++;
-        const del_button = "<button id="+id+">Supprimer</button>";
+        const del_button = "<button id='del"+id+"'>Supprimer</button>";
         createTab(id,newRow);
         createTab(pseudo.value,newRow);
         createTab(age.value,newRow);
         createTab(date_hours,newRow);
         createTab(hashed_mdp,newRow);
         createTab(del_button,newRow);
-        const del = document.getElementsByTagName('tbody > button');
-        del.setAttribute('id','del-button');
-        
+
+        pseudoUsed.push(pseudo.value);
+        document.getElementsByTagName('form').reset();
     }
 }
 
 const del_row = document.getElementById("del-button");
 
-del_row.onclick = function() {
-    document.getElementById("tableau").deleteRow(0);
-}
+// del_row.onclick = function() {
+//     document.getElementById("tableau").deleteRow(0);
+// }
 
