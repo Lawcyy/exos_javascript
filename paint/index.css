@@ -1,18 +1,20 @@
 body {
-    background-color: rgb(223, 108, 14);
+    background-color: #D6603A;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Montserrat;    
+    text-shadow: black 3px 3px;
 }
 
 #canvas {
     width: 70vw;
-    height: 70vh;
+    height: 65vh;
     border: rgb(163, 163, 163) solid 5px;
     background-color: rgb(51, 51, 51);
     position: relative;
     border-radius: 2px;
+    box-shadow: black 5px 5px 3px;
 }
 
 #taille{
@@ -21,7 +23,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 55px;
     color: white;
 }
 

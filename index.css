@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(53, 53, 53);
+    font-family: Montserrat;
+}
+
+h1 {
+    font-size: 40px;
+    color: white;
+    text-shadow: black 5px 5px;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+    font-weight: bold;
+}
+
+#menu {
+    border: rgb(241, 238, 238) solid 3px;
+    font-size: 30px;
+    padding: 10vh;
+    line-height: 200%;
+    margin: 10vh;
+    border-radius: 2px;
+    box-shadow: black 5px 5px;
+    background-color: #D6603A;
+}
