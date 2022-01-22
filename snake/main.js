@@ -1,15 +1,15 @@
 const grid = document.getElementById('snake-grid');
 const grid_ctx = grid.getContext('2d');
-let dX = 10;
+let dX = 20;
 let dY = 0;
 
 //position de départ du serpent
 let snake = [
     {x: 200, y: 200},
-    {x: 190, y: 200},  
     {x: 180, y: 200},  
-    {x: 170, y: 200},  
-    {x: 160, y: 200}
+    {x: 160, y: 200},  
+    {x: 140, y: 200},  
+    {x: 120, y: 200}
 ];
 
 function clearGrid() {
@@ -21,10 +21,10 @@ function clearGrid() {
 
 //dessine le serpent
 function drawSnake(snakeSquare) {
-    grid_ctx.fillStyle = 'blue';
-    grid_ctx.strokestyle = 'blue';
-    grid_ctx.fillRect(snakeSquare.x, snakeSquare.y, 10, 10);
-    grid_ctx.strokeRect(snakeSquare.x, snakeSquare.y, 10, 10);
+    grid_ctx.fillStyle = '#3cff00';
+    grid_ctx.strokestyle = '#3cff00';
+    grid_ctx.fillRect(snakeSquare.x, snakeSquare.y, 20, 20);
+    grid_ctx.strokeRect(snakeSquare.x, snakeSquare.y, 20, 20);
 }
 
 //fait apparaître le serpent
@@ -39,14 +39,15 @@ function moveSnake() {
   snake.pop();
 }
 
-//démarre la partie
+//démarre la partie et bouge le serpent selon l'intervalle de temps
 function startGame() {
-    setTimeout(function onTick() { 
+    if (gameOver()) {
+        clearInterval(interval);
+    } else {
     clearGrid();   
     moveSnake();
     spawnSnake();  
-    startGame();
-    }, 100)
+    }
 }
 
 function changeDirection(e) {  
@@ -57,33 +58,33 @@ function changeDirection(e) {
     const right = 39;
    
     const key = e.keyCode;
-    const goingUp = dY === -10;
-    const goingDown = dY === 10;
-    const goingRight = dX === 10;  
-    const goingLeft = dX === -10;
+    const goingUp = dY === -20;
+    const goingDown = dY === 20;
+    const goingRight = dX === 20;  
+    const goingLeft = dX === -20;
     
     if (key === left && !goingRight)
     {    
-        dX = -10;
+        dX = -20;
         dY = 0;  
     }
 
     if (key === up && !goingDown)
     {    
         dX = 0;
-        dY = -10;
+        dY = -20;
     }
 
     if (key === right && !goingLeft)
     {    
-        dX = 10;
+        dX = 20;
         dY = 0;
     }
 
     if (key === down && !goingUp)
     {    
         dX = 0;
-        dY = 10;
+        dY = 20;
     }
 }
 
@@ -99,13 +100,13 @@ function gameOver() {
     if (snake[0].x < 0) {
         return true;
     } 
-    else if (snake[0].x > grid.width - 10) {
+    else if (snake[0].x > grid.width - 20) {
         return true;
     }
     else if (snake[0].y < 0) {
         return true;
     }
-    else if (snake[0].y > grid.height - 10) {
+    else if (snake[0].y > grid.height - 20) {
         return true;
     }
 }
@@ -113,7 +114,7 @@ function gameOver() {
 
 document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
-        startGame();
+        let interval = setInterval(startGame,90);
     }
 });
 
