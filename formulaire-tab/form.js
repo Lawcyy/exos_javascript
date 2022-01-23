@@ -2,6 +2,7 @@
 const button = document.getElementById('form-button');
 let pseudoUsed = [0];
 let id = 0;
+const tab = document.getElementById("tableau");
 
 const enoughCharacters = (length) => length <= 1 || length >= 20 ? false : true;
 const isItNumbers = (value) => {
@@ -39,6 +40,12 @@ let verification = (pseudo,age,mdp,mdp2) => {
 function createTab(entry,where) {
     
     const newCell = where.insertCell(-1);
+    newCell.innerText = entry;
+};
+
+function createButton(entry,where) {
+    
+    const newCell = where.insertCell(-1);
     newCell.innerHTML = entry;
 };
 
@@ -62,29 +69,28 @@ button.onclick = async function() {
 
     let hashed_mdp = await hash(mdp.value);
 
-    const validite = verification(pseudo.value,age.value,mdp.value,mdp2.value);
-    // const validite = true;
-    if (validite === true) {
+    if (verification(pseudo.value,age.value,mdp.value,mdp2.value)) {
         
-        const tab = document.getElementById("tableau");
-        const newRow = tab.insertRow(-1);
         id++;
-        const del_button = "<button id='del"+id+"'>Supprimer</button>";
+        const newRow = tab.insertRow(-1);
+        newRow.setAttribute('id',id);
+        
+        const del_button = "<button id='"+id+"' onClick='deleteRow(this.id)'>Supprimer</button>";
         createTab(id,newRow);
         createTab(pseudo.value,newRow);
         createTab(age.value,newRow);
         createTab(date_hours,newRow);
         createTab(hashed_mdp,newRow);
-        createTab(del_button,newRow);
+        createButton(del_button,newRow);
 
         pseudoUsed.push(pseudo.value);
-        document.getElementsByTagName('form').reset();
+        document.getElementById('form').reset();
     }
 }
 
-const del_row = document.getElementById("del-button");
-
-// del_row.onclick = function() {
-//     document.getElementById("tableau").deleteRow(0);
-// }
+function deleteRow(id) {
+    let row = document.getElementById(id);
+    row.remove();
+    pseudoUsed[id] = null;
+}
 

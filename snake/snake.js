@@ -26,7 +26,6 @@ let startScreen = document.getElementById("instruction");
 
 let interval;
 
-//position de départ du serpent
 let snake;
 
 function foodPosition(min, max) {  
@@ -188,7 +187,10 @@ document.addEventListener('keyup', event => {
         dX = 20;
         dY = 0;
         spawnFood();
-        if (cursed === true) start.play();
+        if (cursed === true) {
+            start.play();
+            document.getElementById('alien').setAttribute('id','img');
+        }
         interval = setInterval(startGame,90);
         }
     }

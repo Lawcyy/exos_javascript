@@ -79,9 +79,9 @@ tr {
 td {
     max-width: 100px;
     overflow: auto;
-    min-width: 65px;
+    min-width: 70px;
 }
 
 th {
-    min-width: 65px;
+    min-width: 70px;
 }

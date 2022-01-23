@@ -5,6 +5,7 @@ body {
     align-items: center;
     background-color: rgb(53, 53, 53);
     font-family: Montserrat;
+    overflow: hidden;
 }
 
 #snake-grid {
@@ -89,8 +90,25 @@ button {
     animation: blinker 2s linear infinite;
 }
 
+#img {
+    position: absolute;
+    margin-left: 28vw;
+    z-index: 4;
+    height: 80vh;
+    animation: appear 40s linear infinite;
+}
+
 @keyframes blinker {
     50% {
     opacity: 0;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
