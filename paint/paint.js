@@ -1,6 +1,6 @@
 const page = document.getElementById('canvas');
 let size = 1;
-let color = ['cornflowerblue', 'orangered', 'pink','violet', 'gray', 'darkgreen', 'coral'];
+let color = ['cornflowerblue', 'orangered', 'pink', 'violet', 'gray', 'darkgreen', 'coral'];
 
 let affichage = document.getElementById("taille");
 affichage.innerHTML = size;

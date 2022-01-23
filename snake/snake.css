@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(53, 53, 53);
+    font-family: Montserrat;
+}
+
+#snake-grid {
+    background-color: black;
+    width: 90vh;
+    height: 90vh;
+}
+
+#grid-container {   
+    padding: 30px;
+    background-color: rgb(103, 170, 179);
+    border-radius: 2px;
+    border: black solid 2px;
+    position: absolute;
+}
+
+#game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.438);
+
+    position: absolute;
+    z-index: 1;
+
+    color: white;
+    font-size: 50px;
+    
+}
+
+#title-score {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    color: white;
+    margin-left: 2vw;
+    align-self: flex-start;
+    margin-top: 25vh;
+}
+
+#instruction {
+    align-self: center;
+    margin-top: 30vh;
+    color: white;
+    font-size: 45px;
+    z-index: 1;
+    text-align: center;
+    position: absolute;
+}
+
+#apply {
+    text-decoration: underline;
+    margin-left: 7.5vw;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+button {
+    padding: 5px;
+    margin: 10px;
+    user-select: none;
+    max-width: fit-content;
+
+    background-color: black;
+    border: black solid 2px;
+    border-radius: 3px;
+
+    color: white;
+    font-size: 18px;
+
+    animation: blinker 5s linear infinite;
+    z-index: 3;
+}
+
+#instruction > h3 {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+    opacity: 0;
+    }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./snake.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:regular,bold&subset=Latin">
+    <title>JS Snake</title>
+</head>
+<body>
+    <div id="title-score">
+        <h1>JS Snake !</h1>
+        <h3>Score : <span id="score"></span></h3>
+        <button id="cursed">> Mode cursed (le son) : <span id="status">Désactivé</span> <</button>
+        <button id="apply">Appliquer</button>
+    
+    </div>
+    
+    <div id="gameover-div">
+        <h2>Game Over :(</h2>
+        <p>Press space to try again</p>
+    </div>
+
+    <div id="grid-container">
+        <canvas id="snake-grid" width="400" height="400">
+        </canvas>
+    </div>
+    <div id="instruction">
+        <h3>Press space to start !</h3>
+        <h4>Use directional <br> keys or ZQSD to move</h4>
+    </div>
+    
+    <script src="./snake.js"></script>
+</body>
+</html>

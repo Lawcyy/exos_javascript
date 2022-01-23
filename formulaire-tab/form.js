@@ -15,6 +15,9 @@ const samePassword = (value,value2) => value === value2 ? true : false;
 function alreadyUsed(pseudo) {
     return pseudoUsed.includes(pseudo);
 }
+function emptyCase(value) {
+    return (value === null || value === "");
+}
 
 let verification = (pseudo,age,mdp,mdp2) => {
     
@@ -26,6 +29,8 @@ let verification = (pseudo,age,mdp,mdp2) => {
         alert("Les mots de passe ne correspondent pas");
     } else if (alreadyUsed(pseudo) === true) {
         alert("Ce pseudo est déja utilisé");
+    } else if (emptyCase(pseudo)||emptyCase(mdp)) {
+        alert("Une ou plusieurs cases ne sont pas complètes");
     } else {
         return true;
     }
